@@ -54,6 +54,8 @@
     </property>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionFind"/>
    </widget>
    <widget class="QMenu" name="menu_Help">
     <property name="title">
@@ -190,6 +192,14 @@
   <action name="actionClose">
    <property name="text">
     <string>关闭</string>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="text">
+    <string>查找(&amp;F)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
    </property>
   </action>
  </widget>

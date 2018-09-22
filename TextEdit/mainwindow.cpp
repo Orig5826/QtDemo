@@ -13,6 +13,8 @@
 #include <QStringList>
 #include <QDateTime>
 #include <QTimer>
+#include <QLineEdit>
+#include <QDialog>
 
 #define APP_NAME    "Apaki 记事本"
 
@@ -28,8 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // 临时提示到底应该怎么用，为什么有时不能正常显示？
     // 问题好像是ui->statusBar->addWidget();不能正常显示导致的？
     // ui->statusBar->showMessage("欢迎使用 Apaki记事本!",1000);
-
-
     SetStatus("欢迎使用 Apaki记事本!",true);
 
     // --------------------------------------------
@@ -40,6 +40,9 @@ MainWindow::MainWindow(QWidget *parent) :
     curFile = APP_NAME;
     // 初始化窗口标题为文件名
     setWindowTitle(curFile);
+
+    /* 查找函数对话框 */
+    findDlgInit();
 }
 
 MainWindow::~MainWindow()
@@ -326,4 +329,34 @@ void MainWindow::on_actionRedo_triggered()
 {
     ui->textEdit->redo();
     SetStatus("重做");
+}
+
+void MainWindow::on_actionFind_triggered()
+{
+    // 查找操作
+    findDlg->show();
+}
+
+
+void MainWindow::findDlgInit()
+{
+    findDlg = new QDialog(this);
+    findDlg->setWindowTitle("查找");
+
+    findLineEdit = new QLineEdit(findDlg);
+    QPushButton * BT_next = new QPushButton("查找下一个",findDlg);
+    QVBoxLayout * layout = new QVBoxLayout(findDlg);
+    layout->addWidget(findLineEdit);
+    layout->addWidget(BT_next);
+    connect(BT_next,&QPushButton::clicked,this,&MainWindow::showFindText);
+}
+
+void MainWindow::showFindText()
+{
+    QString str = findLineEdit->text();
+    if(!ui->textEdit->find(str,QTextDocument::FindBackward))
+    {
+        QMessageBox::warning(this,"查找",
+                             tr("未找到%1").arg(str));
+    }
 }
