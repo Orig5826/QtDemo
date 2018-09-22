@@ -44,6 +44,8 @@
     <addaction name="actionSave"/>
     <addaction name="actionSaveAs"/>
     <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -84,7 +86,7 @@
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="sizeGripEnabled">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <action name="actionNew">
@@ -183,6 +185,11 @@
   <action name="actionSaveAs">
    <property name="text">
     <string>另存为..</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>关闭</string>
    </property>
   </action>
  </widget>
