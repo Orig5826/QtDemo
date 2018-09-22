@@ -1,5 +1,15 @@
-# Qt
+# Qt5
 `2018.09.08 by jianfeng`
+
+## 关于在Windows下中文显示的问题说明
+`环境： QT5.11.1  MSVC2015 32bit`
+- windows下的utf-8 本质上是utf-8 BOM
+    - [解决方法--步骤]
+        1. 工具->选项->行为
+            - 文件编码：UTF-8
+            - UTF-8 BOM:如果编码是UTF-8则添加
+        2. 在**头文件**中加入该声明：
+            - #pragma execution_character_set("utf-8")
 
 ## 练习目录路径
 - 002_WinApp
