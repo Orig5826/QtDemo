@@ -20,6 +20,15 @@ public:
     void FileNew();
     bool FileSave();
     bool FileSaveAs();
+private slots:
+    void on_actionNew_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_actionSaveAs_triggered();
+
+private:
+    bool FileMaybeSave();
     bool FileSave(const QString &filename);
 
 private:
