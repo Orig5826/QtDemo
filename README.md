@@ -12,9 +12,9 @@
             - #pragma execution_character_set("utf-8")
 
 ## 练习目录路径
-- 002_WinApp
+- 001_WinApp
     > 初次理解Qt界面机制
-- 003_login
+- 002_login
     > 在主界面前有个登陆界面
     1. 在该项目上添加了布局管理器等的功能
         - ` 布局管理器 `
@@ -29,7 +29,8 @@
     > 无*.ui文件，纯代码编写
 - 004_MainApp
     > 菜单项目和ICON的添加
-
+- 005_MyEvent
+    > .
 
 # 小项目路径
 - TextEdit
