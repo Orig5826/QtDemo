@@ -14,6 +14,7 @@ Widget::Widget(QWidget *parent) :
 
     TimerInit();
     ui->label->setText("时间和日期");
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
 }
 
 Widget::~Widget()
@@ -39,6 +40,11 @@ void Widget::timerUpdate()
     QString str = time.toString("yyyy-MM-dd hh:mm:ss dddd");
     ui->label->setText(str);
     ui->label->setAlignment(Qt::AlignCenter);
+
+    // 将显示时间和日期的标签，随机给定一个位置(^.^)
+    int x = qrand()%100;
+    int y = qrand()%100 + 100;
+    ui->label->move(x,y);
 }
 
 void Widget::mousePressEvent(QMouseEvent *e)
