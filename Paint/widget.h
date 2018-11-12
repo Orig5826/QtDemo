@@ -29,9 +29,19 @@ private:
     QPushButton * clearButton;
     QPushButton * saveButton;
 
+    qreal scale;
+    QPushButton * zoomInButton, * zoomOutButton;
+
+    QPixmap tempPix;    //辅助画布
+    bool isDrawing;
+    QPoint rightStart,rightEnd;
+    
     // 按键清空画布
     void clear_paint();
     void save_paint();
+    void zoomIn();
+    void zoomOut();
+    void drawRect();
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
